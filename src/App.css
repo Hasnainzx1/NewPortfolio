@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+HU:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'remixicon/fonts/remixicon.css';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Playwrite+HU:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* font-family: "Playwrite HU", cursive;  */
+ /* font-family: "Roboto", sans-serif;  */
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+} */
+ html{
+    scroll-behavior: smooth;
+ }
+body, html {
+  overflow: scroll;
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE and Edge */
+}
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+.MyName{
+    font-family: "Oswald", sans-serif;
+    
+}
+/* font-family: "Nunito", sans-serif; */
+.leading-relaxed, .shortDetail{
+  font-family: "Nunito", sans-serif;
+}
