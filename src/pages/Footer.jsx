@@ -1,79 +1,120 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-slate-900 border-t border-white/10 py-8 md:py-12">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
+    <motion.footer 
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="bg-gradient-to-br from-gray-900 via-black to-gray-950 border-t border-gray-700/30 py-10 md:py-14 relative overflow-hidden"
+    >
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48L2c+PC9zdmc+')]"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-8 md:gap-12">
           {/* Left Section - Branding */}
-          <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center lg:text-left"
+          >
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 mb-2">
               Ali Huzaifa
             </h2>
-            <p className="text-white/70 mt-1 text-sm">
-              Frontend Developer | React Specialist
+            <p className="text-gray-400 text-sm md:text-base">
+              Frontend Developer & UI/UX Enthusiast
             </p>
-          </div>
+            <p className="text-gray-500 text-xs mt-1">
+              Crafting digital experiences with code and creativity
+            </p>
+          </motion.div>
 
           {/* Middle Section - Navigation */}
-          <nav className="mb-6 md:mb-0">
-            <ul className="flex flex-wrap justify-center gap-4 md:gap-8">
-              {['Home', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
+          <motion.nav 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="flex justify-center"
+          >
+            <ul className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8">
+              {['Home', 'Skills', 'Experience', 'Projects', 'Contact'].map((item, index) => (
                 <li key={item}>
                   <a 
                     href={`#${item.toLowerCase()}`} 
-                    className="text-white/80 hover:text-cyan-400 transition-colors text-sm md:text-base"
+                    className="text-gray-400 hover:text-cyan-400 transition-colors text-sm md:text-base relative group"
                   >
                     {item}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
                   </a>
                 </li>
               ))}
             </ul>
-          </nav>
+          </motion.nav>
 
           {/* Right Section - Social Links */}
-          <div className="flex gap-4">
-            <a 
-              href="https://github.com/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/80 hover:text-white transition-colors text-xl"
-              aria-label="GitHub"
-            >
-              <i className="ri-github-fill"></i>
-            </a>
-            <a 
-              href="https://linkedin.com/in/yourprofile" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/80 hover:text-blue-400 transition-colors text-xl"
-              aria-label="LinkedIn"
-            >
-              <i className="ri-linkedin-box-fill"></i>
-            </a>
-            <a 
-              href="https://instagram.com/yourprofile" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white/80 hover:text-rose-500 transition-colors text-xl"
-              aria-label="Instagram"
-            >
-              <i className="ri-instagram-fill"></i>
-            </a>
-          </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex gap-4 md:gap-5"
+          >
+            {[
+              { icon: 'ri-github-fill', label: 'GitHub', href: 'https://github.com/yourusername', color: 'hover:text-white' },
+              { icon: 'ri-linkedin-box-fill', label: 'LinkedIn', href: 'https://linkedin.com/in/yourprofile', color: 'hover:text-blue-400' },
+              { icon: 'ri-instagram-fill', label: 'Instagram', href: 'https://instagram.com/yourprofile', color: 'hover:text-rose-400' },
+              { icon: 'ri-twitter-x-fill', label: 'Twitter', href: 'https://twitter.com/yourprofile', color: 'hover:text-gray-300' }
+            ].map((social, index) => (
+              <a 
+                key={social.label}
+                href={social.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={`text-gray-500 ${social.color} transition-all duration-300 text-xl md:text-2xl p-2 rounded-lg bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30 hover:scale-110`}
+                aria-label={social.label}
+              >
+                <i className={social.icon}></i>
+              </a>
+            ))}
+          </motion.div>
         </div>
 
         {/* Bottom Section - Copyright */}
-        <div className="mt-8 pt-6 border-t border-white/10 text-center">
-          <p className="text-white/50 text-sm">
-            &copy; {new Date().getFullYear()} Ali Huzaifa. All rights reserved.
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-10 pt-8 border-t border-gray-700/30 text-center flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p className="text-gray-500 text-sm">
+            &copy; {currentYear} Ali Huzaifa. All rights reserved.
           </p>
-          <p className="text-white/40 text-xs mt-1">
-            Built with React & Tailwind CSS
+          
+          <div className="flex items-center gap-2 text-gray-600 text-sm">
+            <span>Built with</span>
+            <div className="flex gap-1">
+              <i className="ri-reactjs-line text-cyan-400"></i>
+              <i className="ri-tailwind-css-line text-blue-400"></i>
+            </div>
+          </div>
+          
+          <p className="text-gray-500 text-sm">
+            Made with <i className="ri-heart-fill text-rose-500"></i> by Ali Huzaifa
           </p>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

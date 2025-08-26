@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import '../App.css';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -25,7 +24,7 @@ const Home = () => {
       animate="visible"
       exit="hidden"
       variants={containerVariants}
-      className="w-full min-h-screen text-white"
+      className="w-full min-h-screen text-white bg-gradient-to-br from-gray-900 via-black to-gray-950"
     >
       <div className="h-full container mx-auto px-4 lg:grid lg:grid-cols-[0.42fr_0.58fr]">
         
@@ -36,22 +35,22 @@ const Home = () => {
             <h1 className="MyName text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 leading-tight">
               Ali Huzaifa
             </h1>
-            <h2 className="MyJob font-roboto font-bold text-sm md:text-base text-white/80 hover:text-white transition duration-300 mt-3 group">
+            <h2 className="MyJob font-bold text-sm md:text-base text-gray-400 hover:text-white transition duration-300 mt-3 group">
               <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">
                 Front End Developer
               </span>
-              <span className="mx-2">|</span>
+              <span className="mx-2 text-cyan-500">|</span>
               <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">
-                React Js
+                React Specialist
               </span>
             </h2>
           </motion.div>
 
           <motion.div
             variants={fadeInUp}
-            className="w-full max-w-md bg-white/5 border border-white/10 rounded-xl p-6 text-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-500"
+            className="w-full max-w-md bg-gray-800/30 backdrop-blur-lg border border-gray-700/50 rounded-xl p-6 text-gray-300 shadow-xl hover:shadow-2xl transition-all duration-500 hover:border-cyan-400/30"
           >
-            <h3 className="text-white/80 text-lg font-semibold mb-3 flex items-center">
+            <h3 className="text-white text-lg font-semibold mb-3 flex items-center">
               <span className="w-3 h-3 bg-cyan-400 rounded-full mr-2 animate-pulse"></span>
               Short Intro
             </h3>
@@ -60,16 +59,24 @@ const Home = () => {
             </p>
           </motion.div>
 
-          <motion.div variants={fadeInUp} className="icon_Buttons ml-1 flex gap-4 text-white/80 text-2xl">
-            <a href="https://www.instagram.com/alihuzaifa2112006/" target='_blank' rel="noopener noreferrer" className="hover:text-rose-500 transition-all duration-300 hover:scale-110 cursor-pointer">
-              <i className="ri-instagram-fill"></i>
-            </a>
-            <a href="https://github.com/your-github-profile" target='_blank' rel="noopener noreferrer" className="hover:text-white transition-all duration-300 hover:scale-110 cursor-pointer">
-              <i className="ri-github-fill"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/ali-huzaifa-92137a292/" target='_blank' rel="noopener noreferrer" className="hover:text-blue-400 transition-all duration-300 hover:scale-110 cursor-pointer">
-              <i className="ri-linkedin-box-fill"></i>
-            </a>
+          <motion.div variants={fadeInUp} className="icon_Buttons ml-1 flex gap-4 text-2xl">
+            {[
+              { icon: 'ri-instagram-fill', href: 'https://www.instagram.com/alihuzaifa2112006/', color: 'hover:text-rose-400', label: 'Instagram' },
+              { icon: 'ri-github-fill', href: 'https://github.com/your-github-profile', color: 'hover:text-white', label: 'GitHub' },
+              { icon: 'ri-linkedin-box-fill', href: 'https://www.linkedin.com/in/ali-huzaifa-92137a292/', color: 'hover:text-blue-400', label: 'LinkedIn' },
+              { icon: 'ri-twitter-x-fill', href: '#', color: 'hover:text-cyan-400', label: 'Twitter' }
+            ].map((social, index) => (
+              <a 
+                key={index}
+                href={social.href} 
+                target='_blank' 
+                rel="noopener noreferrer"
+                className={`text-gray-500 ${social.color} transition-all duration-300 hover:scale-110 p-3 rounded-lg bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 hover:border-cyan-400/30`}
+                aria-label={social.label}
+              >
+                <i className={social.icon}></i>
+              </a>
+            ))}
           </motion.div>
         </div>
 
@@ -77,9 +84,9 @@ const Home = () => {
         <div className="rigthSide w-full flex items-start justify-center pb-12 lg:pb-0 lg:pt-20 lg:pr-10">
           <motion.div
             variants={fadeInUp}
-            className="w-full max-w-3xl bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 text-white/80 backdrop-blur-sm shadow-lg transition-all duration-500 hover:shadow-xl lg:hover:brightness-110"
+            className="w-full max-w-3xl bg-gray-800/30 backdrop-blur-lg border border-gray-700/50 rounded-xl p-6 md:p-8 text-gray-300 shadow-xl transition-all duration-500 hover:shadow-2xl hover:border-cyan-400/30"
           >
-            <h3 className="text-white/80 text-xl md:text-2xl font-semibold mb-6 flex items-center">
+            <h3 className="text-white text-xl md:text-2xl font-semibold mb-6 flex items-center">
               <span className="w-3 h-3 bg-blue-400 rounded-full mr-2 animate-pulse"></span>
               Meet Ali Huzaifa
             </h3>
@@ -97,7 +104,8 @@ const Home = () => {
               <motion.button
                 onClick={toggleDetails}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-br from-cyan-600 to-blue-700 text-white text-sm px-5 py-2.5 rounded-xl transition-all duration-500 hover:scale-[1.03] hover:shadow-lg hover:brightness-110 cursor-pointer flex items-center"
+                whileHover={{ scale: 1.03 }}
+                className="bg-gradient-to-r from-cyan-600 to-blue-700 text-white text-sm px-5 py-2.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 cursor-pointer flex items-center"
               >
                 {showDetails ? (
                   <>
@@ -121,7 +129,7 @@ const Home = () => {
                     transition={{ duration: 0.5 }}
                     className="mt-6 overflow-hidden"
                   >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
                       {[
                         { title: "Name", value: "Ali Huzaifa", icon: "ri-user-3-line" },
                         { title: "Age", value: "19", icon: "ri-calendar-line" },
@@ -132,8 +140,11 @@ const Home = () => {
                       ].map((item, index) => (
                         <motion.div
                           key={index}
-                          whileHover={{ scale: 1.02 }}
-                          className="p-4 rounded-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-md hover:border-cyan-400/30 transition-all duration-300"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          whileHover={{ scale: 1.02, y: -5 }}
+                          className="p-4 rounded-xl border border-gray-700/50 bg-gray-800/30 backdrop-blur-md hover:border-cyan-400/30 transition-all duration-300"
                         >
                           <div className="flex items-center mb-2">
                             <i className={`${item.icon} text-cyan-400 mr-2`}></i>
@@ -141,7 +152,7 @@ const Home = () => {
                               {item.title}
                             </h4>
                           </div>
-                          <p className="text-sm ml-6">{item.value}</p>
+                          <p className="text-sm ml-6 text-white/80">{item.value}</p>
                         </motion.div>
                       ))}
                     </div>
@@ -153,22 +164,26 @@ const Home = () => {
             {/* Page Links */}
             <div className="pageLinks mt-10">
               <ul className="UlofLinks flex flex-wrap gap-3 justify-center md:justify-start">
-                {["Home", "Skills", "Experiences", "Projects", "Contact"].map((item, index) => (
+                {[
+                  { name: "Home", icon: "ri-home-4-line" },
+                  { name: "Skills", icon: "ri-code-line" },
+                  { name: "Experiences", icon: "ri-briefcase-line" },
+                  { name: "Projects", icon: "ri-folder-line" },
+                  { name: "Contact", icon: "ri-contacts-line" }
+                ].map((item, index) => (
                   <li key={index}>
-                    <a
-                      href={`#${item.toLowerCase()}`}
-                      className="block px-5 py-2.5 rounded-lg text-white text-sm font-medium 
-                      bg-gradient-to-br from-cyan-600/80 to-blue-700/80 
-                      hover:scale-105 hover:brightness-110 hover:shadow-md
-                      transition-all duration-300 shadow-sm items-center"
+                    <motion.a
+                      href={`#${item.name.toLowerCase()}`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="block px-5 py-2.5 rounded-xl text-white text-sm font-medium 
+                      bg-gradient-to-r from-cyan-600/80 to-blue-700/80 
+                      hover:shadow-lg hover:shadow-cyan-500/20
+                      transition-all duration-300 shadow-md border border-cyan-500/20"
                     >
-                      {index === 0 && <i className="ri-home-4-line mr-2"></i>}
-                      {index === 1 && <i className="ri-code-line mr-2"></i>}
-                      {index === 2 && <i className="ri-briefcase-line mr-2"></i>}
-                      {index === 3 && <i className="ri-folder-line mr-2"></i>}
-                      {index === 4 && <i className="ri-contacts-line mr-2"></i>}
-                      {item}
-                    </a>
+                      <i className={`${item.icon} mr-2`}></i>
+                      {item.name}
+                    </motion.a>
                   </li>
                 ))}
               </ul>

@@ -1,135 +1,165 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
-    id: 1,
+    "title": "Full Stack Job Finder Application",
+    "description": "A comprehensive job finder application to help users discover and apply for new opportunities. The app provides a user-friendly interface to browse job listings and manage applications.",
+    "stack": [
+      "React",
+      "Material UI",
+      "Tailwind CSS",
+      "Firebase"
+    ],
+    "link": null,
+    "image": "/Images/Hire.png"
+  },
+  {
     title: "Quick Notes App",
     description: "A real-time note-taking application with rich text editing capabilities and instant synchronization across devices.",
     stack: ["React", "Tailwind CSS", "Firebase", "Quill Editor"],
     link: "https://quicknotesapp123.netlify.app/",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    image: "/Images/Note.png",
     featured: true
   },
   {
-    id: 2,
-    title: "E-Commerce Store",
-    description: "Full-featured online shopping platform with product catalog, cart functionality, and secure checkout process.",
-    stack: ["React", "Tailwind CSS", "Context API", "React Router"],
-    link: "https://ecommercekahard.netlify.app/",
-   image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-  },
-  {
-    id: 3,
-    title: "Task Management App",
-    description: "Productivity application for organizing tasks with drag-and-drop functionality and priority tagging.",
-    stack: ["React", "Tailwind CSS", "Firebase", "React Beautiful DnD"],
-    link: "https://todo-application-final.vercel.app/",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80"
-  },
-  {
-    id: 4,
-    title: "Expense Tracker",
-    description: "Financial management tool for tracking expenses, income, and generating spending reports.",
-    stack: ["React", "Tailwind CSS", "Chart.js", "Firebase"],
-    link: "https://smarttrackerbyali.netlify.app/",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80"
-  },
-  {
-    id: 5,
     title: "Currency Converter",
     description: "Real-time currency conversion tool with up-to-date exchange rates and historical data.",
     stack: ["React", "Tailwind CSS", "ExchangeRate API", "Axios"],
     link: "https://currency-converter-psi-blond.vercel.app/",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-  },
-  {
-    id: 6,
-    title: "Weather Application",
-    description: "Weather forecasting app with location detection, 5-day forecasts, and interactive maps.",
-    stack: ["React", "Tailwind CSS", "OpenWeather API", "Geolocation API"],
-    link: "https://weatherapplicationbyali.netlify.app/",
-    image: "https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1375&q=80"
-  },
-  {
-  id: 7,
-  title: "Password Generator",
-  description: "Secure password generator with customizable options (length, character types) and strength meter.",
-  stack: ["React", "Tailwind CSS", "Clipboard API", "Crypto Security"],
-  link: "https://beamish-crepe-98b66f.netlify.app/",
-  image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
-}
+    image: "/Images/Currency.png"
+  }
 ];
 
 const Projects = () => {
   return (
-    <div className="w-full px-4 py-12 md:py-20 min-h-screen flex items-center justify-center text-white " id="projects">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="w-full px-4 py-12 md:py-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-950"
+      id="projects"
+    >
       <div className="w-full max-w-7xl mx-auto">
         {/* Heading Section */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold relative inline-flex items-center gap-3">
-            <i className="ri-folders-line text-cyan-400"></i>
-            <span className="relative">
-              My Projects
-              <span className="absolute bottom-0 left-0 w-full h-0.5 md:h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></span>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 relative">
+            <span className="relative inline-block">
+              Featured Projects
+              <span className="absolute -bottom-3 left-0 w-full h-1.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 rounded-full"></span>
             </span>
           </h2>
-          <p className="mt-3 text-sm md:text-base text-white/70">A collection of my best work and personal projects</p>
-        </div>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            A showcase of my creative solutions and technical implementations
+          </p>
+        </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <div 
-              key={project.id} 
-              className={`bg-white/5 border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm shadow-lg transition-all duration-500 hover:shadow-xl hover:brightness-110 ${project.featured ? 'lg:col-span-2' : ''}`}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className={`relative group ${project.featured ? 'lg:col-span-2' : ''}`}
             >
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                  onError={(e) => {
-                    e.target.src = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <div className="absolute bottom-4 left-4">
-                  <h3 className="text-xl font-bold">{project.title}</h3>
+              <div className="bg-gray-800/30 backdrop-blur-lg border border-gray-700/50 rounded-xl overflow-hidden h-full transition-all duration-500 hover:border-cyan-400/30 hover:shadow-2xl">
+                {/* Image Container */}
+                <div className="relative h-48 md:h-56 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-purple-500/10 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    onError={(e) => {
+                      e.target.src = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                  
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-xs font-bold px-3 py-1 rounded-full z-20">
+                      <i className="ri-star-fill mr-1"></i> Featured
+                    </div>
+                  )}
+                  
+                  <div className="absolute bottom-4 left-4 z-20">
+                    <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="p-5">
-                <p className="text-white/80 mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.stack.map((tech, index) => (
-                    <span 
-                      key={index} 
-                      className="text-xs px-2 py-1 bg-white/10 rounded-full border border-white/10"
+
+                {/* Content Container */}
+                <div className="p-5 md:p-6">
+                  <p className="text-gray-300 mb-4 md:mb-5">{project.description}</p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 mb-5 md:mb-6">
+                    {project.stack.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="text-xs px-3 py-1.5 bg-gray-700/50 rounded-full border border-gray-600/50 text-gray-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex gap-3">
+                    <a
+                      href={project.link || "#"}
+                      target={project.link ? "_blank" : "_self"}
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                        project.link 
+                          ? "bg-gradient-to-r from-cyan-600 to-blue-700 text-white hover:brightness-110 shadow-lg hover:shadow-cyan-500/20" 
+                          : "bg-gray-700/50 text-gray-400 cursor-not-allowed"
+                      }`}
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-3">
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-700 text-sm font-medium hover:brightness-110 transition-all"
-                  >
-                    <i className="ri-external-link-line"></i>
-                    Live Demo
-                  </a>
-                 
+                      <i className={`ri-${project.link ? 'external-link-line' : 'forbid-line'}`}></i>
+                      {project.link ? "Live Demo" : "Coming Soon"}
+                    </a>
+                    
+                    <button className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-gray-300 bg-gray-700/30 border border-gray-600/50 hover:bg-gray-700/50 transition-all">
+                      <i className="ri-github-line"></i>
+                      Code
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
+
+        {/* View More Button */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          {/* <a 
+            href="#" 
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700/50 text-gray-300 font-medium hover:from-gray-700/50 hover:to-gray-800/50 transition-all"
+          >
+            <i className="ri-github-fill"></i>
+            View More on GitHub
+          </a> */}
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
