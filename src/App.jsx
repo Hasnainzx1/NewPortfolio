@@ -12,7 +12,7 @@ function App() {
   return (
 
      <>
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <Home />
         <Skills />
         <Projects />

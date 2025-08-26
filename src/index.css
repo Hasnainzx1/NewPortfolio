@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-body {
+/* body {
     cursor: none;
 }
 .custom-cursor {
@@ -12,7 +12,7 @@ body {
   border: 2px solid cyan;
   border-radius: 50%;
   transform: rotate(45deg); /* 👈 angled ring effect */
-  pointer-events: none;
+  /* pointer-events: none;
   z-index: 9999;
   transition: transform 0.2s ease-out;
-}
+} */  
