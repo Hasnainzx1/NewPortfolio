@@ -11,7 +11,7 @@ const projects = [
       "Tailwind CSS",
       "Firebase"
     ],
-    "link": null,
+    "link":`https://hire-hunar.vercel.app/auth`,
     "image": "/Images/Hire.png",
      featured: true
   },
