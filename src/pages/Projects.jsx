@@ -12,7 +12,8 @@ const projects = [
       "Firebase"
     ],
     "link": null,
-    "image": "/Images/Hire.png"
+    "image": "/Images/Hire.png",
+     featured: true
   },
   {
     title: "Quick Notes App",
@@ -20,7 +21,7 @@ const projects = [
     stack: ["React", "Tailwind CSS", "Firebase", "Quill Editor"],
     link: "https://quicknotesapp123.netlify.app/",
     image: "/Images/Note.png",
-    featured: true
+   
   },
   {
     title: "Currency Converter",
